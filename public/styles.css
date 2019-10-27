@@ -1,0 +1,13 @@
+body {
+  /* background: url("/images/newspapers.jpg") center fixed no-repeat; */
+  background: url("/images/city-buildings.jpg") center fixed no-repeat;
+  background-size: cover;
+}
+
+div.container {
+  width: 85%;
+}
+
+div.card-content {
+  height: 230px;
+}
