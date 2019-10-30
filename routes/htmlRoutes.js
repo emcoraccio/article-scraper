@@ -10,6 +10,9 @@ router.get("/home", function(req, res) {
     .populate("note")
     .then(function(dbArticles) {
     console.log(dbArticles);
+    dbArticles.forEach(art => {
+      console.log(art.note);
+    });
 
     res.render("index", {
       articles: dbArticles

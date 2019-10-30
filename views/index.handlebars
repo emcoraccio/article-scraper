@@ -8,6 +8,11 @@
 
   <div class="row">
 
+    {{#unless articles}}
+    <h4 class="col s12 center">No articles available. Scrape to view more</h4>
+    {{/unless}}
+
+    {{#if articles}}
     {{#each articles}}
     <div class="col s12 m6 article">
       <div class="card blue-grey darken-4">
@@ -25,13 +30,22 @@
     <!-- Modal Structure -->
     <div id="modal-{{this._id}}" class="modal modal-fixed-footer blue-grey">
       <div class="modal-content">
-        <h4>Notes</h4>
+        <h4 class="center">Notes</h4>
+        <h5>Article Summary:</h5>
         <p>{{this.summary}}</p>
 
+        <hr>
+
+        {{#if this.note}}
+        {{> notes/note-block}}
+        {{/if}}
+
+      <h4 class="center">Add New Note</h4>
         <div class="input-field col s6 center">
           <input id="noteTitle{{this._id}}" type="text" class="note-title">
           <label for="noteTitle{{this._id}}">Note Title</label>
         </div>
+
         <div class="input-field col s12 center">
           <input id="noteContent{{this._id}}" type="text" class="note-content">
           <label for="noteContent{{this._id}}">Note Content</label>
@@ -45,6 +59,7 @@
     </div>
     {{/each}}
 
+    {{/if}}
 
   </div>
 

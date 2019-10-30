@@ -83,7 +83,9 @@ router.post("/articles/:id", (req, res) => {
         _id: req.params.id
       },
       {
-        note: dbNote._id
+        $push: {
+          note: dbNote._id
+        }
       },
       {
         new: true
