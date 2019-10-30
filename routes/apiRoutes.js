@@ -36,7 +36,9 @@ router.get("/scrape", function (req, res) {
             .then(function (dbArticle) {
               console.log(dbArticle);
               res.sendStatus(200);
-            })
+            }).catch((err) => {
+              res.sendStatus(500);
+            });
 
         }
         else {
@@ -95,6 +97,26 @@ router.post("/articles/:id", (req, res) => {
       res.json(dbArticle);
     })
     .catch( (err) => { res.json(err); } );
+
+});
+
+
+router.put("/articles/:id", (req, res) => {
+
+  db.Article.findOneAndUpdate({
+    _id: req.params.id
+  },
+  {
+    lock: req.body.lock
+  },
+  {
+    new: true
+  }).then( (dbArticle) => {
+
+    res.json(dbArticle);
+    
+  }).catch( (err) => {res.sendStatus(500);})
+
 
 });
 

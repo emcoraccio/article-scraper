@@ -18,6 +18,22 @@ div.card-content {
   overflow: scroll;
 }
 
+i.save {
+  cursor: pointer;
+}
+
+i.unlocked {
+  color: #b0bec5;
+}
+
+i.locked {
+  color: #eceff1;
+}
+
+i.save:hover {
+  color: #cfd8dc;
+}
+
 /* modal styling  */
 small.modalHelp {
   display: none;

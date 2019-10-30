@@ -22,7 +22,19 @@
         </div>
         <div class="card-action">
           <a href="{{this.link}}" target="_blank">Go to article</a>
-          <a class="modal-trigger" href="#modal-{{this._id}}">Notes</a>
+          <a class="modal-trigger" value="{{this._id}}" href="#modal-{{this._id}}">Notes
+
+            {{#if this.note}}
+            <i class="material-icons tiny">note</i>
+            {{/if}}
+
+          </a>
+
+          {{#if this.lock}}
+          <i data-art-id="{{this._id}}" data-locked="true" class="locked save material-icons right">lock_outline</i>
+          {{else}}
+          <i data-art-id="{{this._id}}" data-locked="false" class="unlocked save material-icons right">lock_open</i>
+          {{/if}}
         </div>
       </div>
     </div>
@@ -40,7 +52,7 @@
         {{> notes/note-block}}
         {{/if}}
 
-      <h4 class="center">Add New Note</h4>
+        <h4 class="center">Add New Note</h4>
         <div class="input-field col s6 center">
           <input id="noteTitle{{this._id}}" type="text" class="note-title">
           <label for="noteTitle{{this._id}}">Note Title</label>

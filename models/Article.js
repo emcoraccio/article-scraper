@@ -18,6 +18,10 @@ let ArticleSchema = new Schema({
   category: {
     type: String
   },
+  lock: {
+    type: Boolean,
+    default: false
+  },
   note: [{
     type: Schema.Types.ObjectId,
     ref: "Note"

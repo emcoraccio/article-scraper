@@ -14,14 +14,37 @@ $(document).ready(function () {
       .then((res) => {
 
         console.log(res);
-        window.reload();
+        location.reload(true);
       }).catch(err => { console.log(err); })
 
   });
 
 
-  $("button.addNote").on("click", function (event) {
+  $("i.save").on("click", function(event) {
 
+    const $this = $(this);
+    const articleId = $this.data("art-id");
+
+    let articleLocked = $this.data("locked");
+
+    articleLocked = (articleLocked === false) ? true : false; 
+
+    $.ajax({
+      url: `api/articles/${articleId}`,
+      type: "PUT",
+      data: {
+        lock: articleLocked,
+      }
+    }).then((article) => {
+
+      $this.data("locked", articleLocked);
+      location.reload(true);
+    })
+
+  });
+
+
+  $("button.addNote").on("click", function (event) {
 
     const articleId = $(this).val();
     const $noteTitle = $(`input#noteTitle${articleId}`);
@@ -30,10 +53,7 @@ $(document).ready(function () {
     const noteTitle = $noteTitle.val().trim();
     const noteContent = $noteContent.val().trim();
 
-    console.log(`Note Title: ${noteTitle}`);
-    console.log(`Note Content: ${noteContent}`);
     if (!noteTitle || !noteContent) {
-      console.log("nothing here folks!")
       $noteError.fadeIn();
     }
     else {
@@ -48,12 +68,11 @@ $(document).ready(function () {
           $noteTitle.val("");
           $noteContent.val("");
           $('.modal').modal('close');
+          location.reload(true);
 
         }).catch(err => { console.log(err); })
 
-
     }
-
 
   });
 
