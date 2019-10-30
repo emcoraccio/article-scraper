@@ -29,17 +29,17 @@
         <p>{{this.summary}}</p>
 
         <div class="input-field col s6 center">
-          <input id="noteTitle" type="text" class="note-title">
-          <label for="noteTitle">Note Title</label>
+          <input id="noteTitle{{this._id}}" type="text" class="note-title">
+          <label for="noteTitle{{this._id}}">Note Title</label>
         </div>
         <div class="input-field col s12 center">
-          <input id="noteContent" type="text" class="note-content">
-          <label for="noteContent">Note Content</label>
-          <small id="modalHelp">Please fill out both title and content to add a note</small>
+          <input id="noteContent{{this._id}}" type="text" class="note-content">
+          <label for="noteContent{{this._id}}">Note Content</label>
+          <small class="modalHelp">Please fill out both title and content to add a note</small>
         </div>
       </div>
       <div class="modal-footer blue-grey darken-2">
-        <button id="addNote" class="btn blue-grey darken-4">Add Note</button>
+        <button id="addNote{{this._id}}" value="{{this._id}}" class="addNote btn blue-grey darken-4">Add Note</button>
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
       </div>
     </div>

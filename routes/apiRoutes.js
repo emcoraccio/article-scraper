@@ -77,6 +77,7 @@ router.post("/articles/:id", (req, res) => {
 
   db.Note.create(req.body)
     .then( (dbNote) => {
+      console.log(dbNote);
 
       return db.Article.findOneAndUpdate({
         _id: req.params.id

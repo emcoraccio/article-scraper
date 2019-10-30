@@ -1,3 +1,4 @@
+/* general styling */
 body {
   /* background: url("/images/newspapers.jpg") center fixed no-repeat; */
   background: url("/images/city-buildings.jpg") center fixed no-repeat;
@@ -8,6 +9,7 @@ div.container {
   width: 85%;
 }
 
+/* main page card styling  */
 div.card-content {
   height: 230px;
 }
@@ -16,6 +18,7 @@ div.card-content {
   overflow: scroll;
 }
 
-small#modalHelp {
+/* modal styling  */
+small.modalHelp {
   display: none;
 }
