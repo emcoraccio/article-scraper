@@ -19,6 +19,17 @@ $(document).ready(function () {
 
   });
 
+  $("button#clear").on("click", function(event) {
+    $.ajax({
+      url: "api/articles",
+      type: "DELETE"
+    })
+    .then((res) => {
+      console.log(res);
+      location.reload(true);
+    }).catch(err => { console.log(err); })
+  });
+
 
   $("i.save").on("click", function(event) {
 

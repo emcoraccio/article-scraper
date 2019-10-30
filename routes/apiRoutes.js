@@ -34,10 +34,14 @@ router.get("/scrape", function (req, res) {
 
           db.Article.create(result)
             .then(function (dbArticle) {
+
               console.log(dbArticle);
               res.sendStatus(200);
+
             }).catch((err) => {
+
               res.sendStatus(500);
+
             });
 
         }
@@ -94,7 +98,9 @@ router.post("/articles/:id", (req, res) => {
       });
     })
     .then( (dbArticle) => {
+
       res.json(dbArticle);
+
     })
     .catch( (err) => { res.json(err); } );
 
@@ -114,12 +120,23 @@ router.put("/articles/:id", (req, res) => {
   }).then( (dbArticle) => {
 
     res.json(dbArticle);
-    
+
   }).catch( (err) => {res.sendStatus(500);})
 
 
 });
 
+router.delete("/articles", (req, res) => {
+
+  db.Article.remove({
+    lock: false
+  }).then( (dbArticles) => {
+
+    res.json (dbArticles)
+
+  }).catch(err => { res.sendStatus(500); })
+
+});
 
 
 
