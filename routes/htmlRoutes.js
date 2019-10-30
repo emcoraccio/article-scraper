@@ -6,7 +6,9 @@ const axios   = require("axios"),
 
 router.get("/home", function(req, res) {
   
-  db.Article.find({}).then(function(dbArticles) {
+  db.Article.find({})
+    .populate("note")
+    .then(function(dbArticles) {
     console.log(dbArticles);
 
     res.render("index", {
