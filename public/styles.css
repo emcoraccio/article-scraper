@@ -11,3 +11,11 @@ div.container {
 div.card-content {
   height: 230px;
 }
+
+div.card-content {
+  overflow: scroll;
+}
+
+small#modalHelp {
+  display: none;
+}
