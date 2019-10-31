@@ -4,7 +4,7 @@ const axios   = require("axios"),
       express = require("express"),
       router  = express.Router();
 
-router.get("/home", function(req, res) {
+router.get("*", function(req, res) {
   
   db.Article.find({})
     .populate("note")
@@ -23,6 +23,8 @@ router.get("/home", function(req, res) {
   })
 
 })
+
+
 
 
 
