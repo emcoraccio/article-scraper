@@ -10,35 +10,33 @@ $(document).ready(function () {
 
   // click events
   $("button#scrape").on("click", function (event) {
-    $.get("/api/scrape")
-      .then((res) => {
-
-        console.log(res);
-        location.reload(true);
-      }).catch(err => { console.log(err); })
+    $.get("/api/scrape", function (data) {
+      console.log(data);
+      location.reload(true);
+    })
 
   });
 
-  $("button#clear").on("click", function(event) {
+  $("button#clear").on("click", function (event) {
     $.ajax({
       url: "api/articles",
       type: "DELETE"
     })
-    .then((res) => {
-      console.log(res);
-      location.reload(true);
-    }).catch(err => { console.log(err); })
+      .then((res) => {
+        console.log(res);
+        location.reload(true);
+      }).catch(err => { console.log(err); })
   });
 
 
-  $("i.save").on("click", function(event) {
+  $("i.save").on("click", function (event) {
 
     const $this = $(this);
     const articleId = $this.data("art-id");
 
     let articleLocked = $this.data("locked");
 
-    articleLocked = (articleLocked === false) ? true : false; 
+    articleLocked = (articleLocked === false) ? true : false;
 
     $.ajax({
       url: `api/articles/${articleId}`,
@@ -75,7 +73,7 @@ $(document).ready(function () {
         body: noteContent
       })
         .then((res) => {
-          
+
           $noteTitle.val("");
           $noteContent.val("");
           $('.modal').modal('close');
@@ -86,5 +84,23 @@ $(document).ready(function () {
     }
 
   });
+
+
+  $("i.delNote").on("click", function(event) {
+    let $this = $(this);
+
+    let noteId = $this.data("note-id");
+    console.log(noteId);
+
+    $.ajax({
+      url: `api/notes/${noteId}`,
+      type: "DELETE"
+    }).then((data) => {
+
+      $('.modal').modal('close');
+      location.reload(true);
+
+    }).catch((err) => { console.log(err); })
+  })
 
 });

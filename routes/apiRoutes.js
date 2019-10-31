@@ -36,7 +36,6 @@ router.get("/scrape", function (req, res) {
             .then(function (dbArticle) {
 
               console.log(dbArticle);
-              res.sendStatus(200);
 
             }).catch((err) => {
 
@@ -48,17 +47,10 @@ router.get("/scrape", function (req, res) {
         else {
           console.log("already exists in db");
         }
-      }).catch(function (err) {
-
-        res.sendStatus(500);
-
       })
     });
-  }).catch(
-
-    res.sendStatus(500)
-
-  )
+    res.redirect("/home");
+  })
 });
 
 router.get("/articles/:id", (req, res) => {
@@ -133,6 +125,21 @@ router.delete("/articles", (req, res) => {
   }).then( (dbArticles) => {
 
     res.json (dbArticles)
+
+  }).catch(err => { res.sendStatus(500); })
+
+});
+
+
+router.delete("/notes/:id", (req, res) => {
+
+  db.Note.findByIdAndRemove(
+    {
+    _id: req.params.id
+  }
+  ).then( (dbNote) => {
+
+    res.json(dbNote);
 
   }).catch(err => { res.sendStatus(500); })
 
