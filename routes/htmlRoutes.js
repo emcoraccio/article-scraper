@@ -4,7 +4,7 @@ const axios   = require("axios"),
       express = require("express"),
       router  = express.Router();
 
-router.get("*", function(req, res) {
+router.get("", function(req, res) {
   
   db.Article.find({})
     .populate("note")
@@ -22,9 +22,11 @@ router.get("*", function(req, res) {
     console.log(err);
   })
 
-})
+});
 
-
+router.get("*", function(req, res) {
+  res.redirect("/");
+});
 
 
 
