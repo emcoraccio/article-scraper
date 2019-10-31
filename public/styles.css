@@ -1,15 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Code|Staatliches&display=swap');
+/* font-family: 'Staatliches', cursive; */
+/* font-family: 'Fira Code', monospace; */
+
 /* general styling */
+
 body {
   /* background: url("/images/newspapers.jpg") center fixed no-repeat; */
   background: url("/images/city-buildings.jpg") center fixed no-repeat;
   background-size: cover;
+  font-family: 'Fira Code', monospace;
 }
 
 div.container {
   width: 85%;
 }
 
+h1, h4, h5, span.card-title {
+  font-family: 'Staatliches', cursive;
+}
+
+span.card-title {
+  letter-spacing: 1.5px;
+}
+
 /* main page card styling  */
+
 div.card-content {
   height: 230px;
 }
@@ -23,11 +38,13 @@ i.save {
 }
 
 i.unlocked {
-  color: #b0bec5;
+  /* color: #b0bec5; */
+  color: #90a4ae;
 }
 
 i.locked {
-  color: #eceff1;
+  /* color: #eceff1; */
+  color: #bbdefb
 }
 
 i.save:hover {
@@ -39,6 +56,39 @@ i.delNote {
 }
 
 /* modal styling  */
+
 small.modalHelp {
   display: none;
+}
+
+h4.newNote {
+  margin-top: 2rem;
+}
+
+div.note {
+  margin: 1rem 0;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #000000, rgba(0, 0, 0, 0));
+  /* margin-bottom: 2rem; */
+}
+
+p.noteBody {
+  margin-bottom: 2rem;
+}
+
+/* label underline focus color */
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #b0bec5;
+  box-shadow: 0 1px 0 0 #90a4ae;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label {
+
+  color: #b0bec5;
+
 }

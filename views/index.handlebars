@@ -3,8 +3,12 @@
   <h1 class="center">NPR Articles</h1>
 
   <div class="row">
-    <button id="scrape" class="btn blue-grey darken-4 waves-effect col s4 offset-s2 center">Scrape Articles</button>
-    <button id="clear" class="btn blue-grey darken-4 waves-effect col s4 center">Clear Articles</button>
+    <div class="col s6">
+      <button id="scrape" class="btn blue-grey darken-4 waves-effect col right">Scrape Articles</button>
+    </div>
+    <div class="col s6">
+      <button id="clear" class="btn blue-grey darken-4 waves-effect center">Clear Articles</button>
+    </div>
   </div>
 
   <div class="row">
@@ -53,8 +57,8 @@
         {{> notes/note-block}}
         {{/if}}
 
-        <h4 class="center">Add New Note</h4>
-        <div class="input-field col s6 center">
+        <h4 class="newNote center">Add New Note</h4>
+        <div class="input-field col s6 offset-s3 center">
           <input id="noteTitle{{this._id}}" type="text" class="note-title">
           <label for="noteTitle{{this._id}}">Note Title</label>
         </div>

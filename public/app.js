@@ -55,6 +55,10 @@ $(document).ready(function () {
 
   });
 
+  $(".modal-close").on("click", function(event) {
+    $noteError.fadeOut();
+  });
+
 
   // add note click event 
   $("button.addNote").on("click", function (event) {
