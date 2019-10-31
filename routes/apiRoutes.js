@@ -91,7 +91,20 @@ router.post("/articles/:id", (req, res) => {
     })
     .then( (dbArticle) => {
 
-      res.json(dbArticle);
+      db.Article.findOneAndUpdate({
+        _id: dbArticle._id
+      },
+      {
+        lock: true
+      },
+      {
+        new: true
+      }).then( (dbArticle) => {
+
+        res.json(dbArticle);
+
+      })
+
 
     })
     .catch( (err) => { res.json(err); } );

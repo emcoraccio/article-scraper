@@ -8,7 +8,8 @@ $(document).ready(function () {
   $('.modal').modal();
 
 
-  // click events
+  // CLICK EVENTS
+  // scrape website click event 
   $("button#scrape").on("click", function (event) {
     $.get("/api/scrape", function (data) {
       console.log(data);
@@ -17,6 +18,7 @@ $(document).ready(function () {
 
   });
 
+  // clear articles click event 
   $("button#clear").on("click", function (event) {
     $.ajax({
       url: "api/articles",
@@ -29,6 +31,7 @@ $(document).ready(function () {
   });
 
 
+  // save article on click event 
   $("i.save").on("click", function (event) {
 
     const $this = $(this);
@@ -53,6 +56,7 @@ $(document).ready(function () {
   });
 
 
+  // add note click event 
   $("button.addNote").on("click", function (event) {
 
     const articleId = $(this).val();
@@ -85,7 +89,7 @@ $(document).ready(function () {
 
   });
 
-
+  // delete note event
   $("i.delNote").on("click", function(event) {
     let $this = $(this);
 
