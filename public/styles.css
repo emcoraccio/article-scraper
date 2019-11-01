@@ -9,6 +9,7 @@ body {
   background: url("/images/city-buildings.jpg") center center no-repeat fixed;
   background-size: cover;
   font-family: 'Fira Code', monospace;
+  height: 100vh;
 }
 
 h1, h4, h5, span.card-title {

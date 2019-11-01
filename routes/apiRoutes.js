@@ -60,11 +60,11 @@ router.get("/articles/:id", (req, res) => {
       _id: req.params.id
     })
     .populate("note")
-    .then( (dbArticle) => {
+    .then((dbArticle) => {
 
       res.json(dbArticle);
 
-    }).catch( (err) => {
+    }).catch((err) => {
 
       res.json(err);
 
@@ -74,40 +74,40 @@ router.get("/articles/:id", (req, res) => {
 router.post("/articles/:id", (req, res) => {
 
   db.Note.create(req.body)
-    .then( (dbNote) => {
+    .then((dbNote) => {
       console.log(dbNote);
 
       return db.Article.findOneAndUpdate({
         _id: req.params.id
       },
-      {
-        $push: {
-          note: dbNote._id
-        }
-      },
-      {
-        new: true
-      });
+        {
+          $push: {
+            note: dbNote._id
+          }
+        },
+        {
+          new: true
+        });
     })
-    .then( (dbArticle) => {
+    .then((dbArticle) => {
 
       db.Article.findOneAndUpdate({
         _id: dbArticle._id
       },
-      {
-        lock: true
-      },
-      {
-        new: true
-      }).then( (dbArticle) => {
+        {
+          lock: true
+        },
+        {
+          new: true
+        }).then((dbArticle) => {
 
-        res.json(dbArticle);
+          res.json(dbArticle);
 
-      })
+        })
 
 
     })
-    .catch( (err) => { res.json(err); } );
+    .catch((err) => { res.json(err); });
 
 });
 
@@ -117,16 +117,16 @@ router.put("/articles/:id", (req, res) => {
   db.Article.findOneAndUpdate({
     _id: req.params.id
   },
-  {
-    lock: req.body.lock
-  },
-  {
-    new: true
-  }).then( (dbArticle) => {
+    {
+      lock: req.body.lock
+    },
+    {
+      new: true
+    }).then((dbArticle) => {
 
-    res.json(dbArticle);
+      res.json(dbArticle);
 
-  }).catch( (err) => {res.sendStatus(500);})
+    }).catch((err) => { res.sendStatus(500); })
 
 
 });
@@ -135,9 +135,9 @@ router.delete("/articles", (req, res) => {
 
   db.Article.remove({
     lock: false
-  }).then( (dbArticles) => {
+  }).then((dbArticles) => {
 
-    res.json (dbArticles)
+    res.json(dbArticles)
 
   }).catch(err => { res.sendStatus(500); })
 
@@ -148,9 +148,28 @@ router.delete("/notes/:id", (req, res) => {
 
   db.Note.findByIdAndRemove(
     {
-    _id: req.params.id
-  }
-  ).then( (dbNote) => {
+      _id: req.params.id
+    }
+  ).then((dbNote) => {
+
+    console.log(dbNote._id);
+    db.Article.findOneAndUpdate(
+      {
+        note: {
+          $in: [dbNote._id]
+        }
+      }, 
+      { $pull: {
+         note: dbNote._id
+        } 
+      },
+      { new: true }
+      
+    ).then((dbArticle) => {
+
+      console.log(dbArticle);
+
+    })
 
     res.json(dbNote);
 
