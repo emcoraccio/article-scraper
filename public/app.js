@@ -6,6 +6,9 @@ $(document).ready(function () {
 
   // initialize modal 
   $('.modal').modal();
+  
+  // initialize filter select
+  $('.dropdown-trigger').dropdown();
 
 
   // CLICK EVENTS
@@ -109,6 +112,17 @@ $(document).ready(function () {
       location.reload(true);
 
     }).catch((err) => { console.log(err); })
+  });
+
+
+  $("select#filter").on("change", function(event) {
+
+    let $this = $(this);
+
+    let filterVal = $this.val();
+
+
+
   })
 
 });

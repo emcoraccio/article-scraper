@@ -18,8 +18,26 @@
     {{/unless}}
 
     {{#if articles}}
+
+    <div class="row">
+
+        <!-- Dropdown Trigger -->
+        <button class='dropdown-trigger btn blue-grey darken-4 waves-effect col s6 offset-s3 m4 offset-m4' data-target='filter'>Filter By</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='filter' class='dropdown-content'>
+          <li><a href="https://ghostly-alien-87903.herokuapp.com/">View All <i class="material-icons">list</i> </a></li>
+          <li><a href="https://ghostly-alien-87903.herokuapp.com/notes-all">Notes <i class="material-icons">note</i> </a></li>
+          <li><a href="https://ghostly-alien-87903.herokuapp.com/lock-true">Locked <i class="material-icons">lock_outline</i></a></li>
+          <li><a href="https://ghostly-alien-87903.herokuapp.com/lock-false">Unlocked <i class="material-icons">lock_open</i></a></li>
+        </ul>
+
+      {{!-- </div> --}}
+
+    </div>
+
     {{#each articles}}
-    <div class="col s12 m6 article">
+    <div class="col s10 m6 offset-s1 article">
       <div class="card blue-grey darken-4">
         <div class="card-content white-text">
           <span class="card-title">{{this.title}}</span>
@@ -71,7 +89,7 @@
       </div>
       <div class="modal-footer blue-grey darken-2">
         <button id="addNote{{this._id}}" value="{{this._id}}" class="addNote btn blue-grey darken-4">Add Note</button>
-        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+        <a href="#!" class="modal-close waves-effect btn-flat">Done</a>
       </div>
     </div>
     {{/each}}

@@ -5,31 +5,40 @@
 /* general styling */
 
 body {
-  /* background: url("/images/newspapers.jpg") center fixed no-repeat; */
   background: url("/images/city-buildings.jpg") center fixed no-repeat;
   background-size: cover;
   font-family: 'Fira Code', monospace;
-}
-
-div.container {
-  width: 85%;
 }
 
 h1, h4, h5, span.card-title {
   font-family: 'Staatliches', cursive;
 }
 
-span.card-title {
-  letter-spacing: 1.5px;
+/* drop down styling */
+
+ul.dropdown-content {
+  background-color: #90a4ae;
+}
+
+ul.dropdown-content li>a {
+  color: #000000;
+}
+
+ul.dropdown-content li:hover {
+  background-color: #78909c;
 }
 
 /* main page card styling  */
+
+span.card-title {
+  letter-spacing: 1.5px;
+}
 
 div.card-content {
   height: 230px;
 }
 
-div.card-content {
+div.card-content, div.card-action {
   overflow: scroll;
 }
 
@@ -38,12 +47,10 @@ i.save {
 }
 
 i.unlocked {
-  /* color: #b0bec5; */
   color: #90a4ae;
 }
 
 i.locked {
-  /* color: #eceff1; */
   color: #bbdefb
 }
 
@@ -73,7 +80,6 @@ hr {
   border: 0;
   height: 2px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #000000, rgba(0, 0, 0, 0));
-  /* margin-bottom: 2rem; */
 }
 
 p.noteBody {
@@ -90,5 +96,19 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
 input[type=text]:not(.browser-default):focus:not([readonly])+label {
 
   color: #b0bec5;
+
+}
+
+
+@media screen and (max-width: 746px) {
+
+  body {
+    background: url("/images/portrait-buildings.jpg") center fixed no-repeat;
+    background-size: cover;
+  }
+
+  div.card-action {
+    height: 75px;
+  }
 
 }

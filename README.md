@@ -11,6 +11,10 @@ When there is a note on a certain article it will have a note icon next to the w
 
 Scrape/clear articles, and create/delete comments at your will
 
+Filter the articles that you view at any time based on whether they have notes associated with them, are "locked", or are "unlocked".
+
+All data is stored using mongodb and is rendered to the page dynamically using handlebars. 
+
 ## Technologies/Packages Used
 - NodeJS
 - Express
@@ -52,3 +56,5 @@ This website is built using MVC structure.
 
 ## Other Info
 I built this website alone as part of an assignment for my coding bootcamp. The basic ability to scrape a website, display info, and make comments were part of the requirements of the assignment. The design and any extra features were my own.
+
+You can see it deployed here: https://ghostly-alien-87903.herokuapp.com/
