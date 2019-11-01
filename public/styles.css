@@ -5,7 +5,8 @@
 /* general styling */
 
 body {
-  background: url("/images/city-buildings.jpg") center fixed no-repeat;
+  background-color: #90a4ae;
+  background: url("/images/city-buildings.jpg") center center no-repeat fixed;
   background-size: cover;
   font-family: 'Fira Code', monospace;
 }
@@ -103,7 +104,7 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label {
 @media screen and (max-width: 746px) {
 
   body {
-    background: url("/images/portrait-buildings.jpg") center fixed no-repeat;
+    background: url("/images/portrait-buildings.jpg") center center no-repeat fixed;
     background-size: cover;
   }
 
