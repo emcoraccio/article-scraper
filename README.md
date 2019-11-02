@@ -29,30 +29,30 @@ All data is stored using mongodb and is rendered to the page dynamically using h
 ## File Structure
 This website is built using MVC structure. 
 
-.
+```
 +-- _models
-|   +-- Article.js
-|   +-- index.js
-|   +-- Note.js
+|   |-- Article.js
+|   |-- index.js
+|   |-- Note.js
 +-- _public
-|   +-- _images
-|   +-- app.js
-|   +-- styels.css
+|   |-- _images
+|   |-- app.js
+|   |-- styels.css
 +-- _routes
-|   +-- apiRoutes.js
-|   +-- htmlRoutes.js
+|   |-- apiRoutes.js
+|   |-- htmlRoutes.js
 +-- _views
 |   +-- _layouts
-|     +-- _main.handlebars
+|       |-- _main.handlebars
 |   +-- _partials
-|     +-- _notes
-|       +-- note-block.handlebars
-|   +-- index.handlebars
+|       |-- _notes
+|           |-- note-block.handlebars
+|   |-- index.handlebars
 +-- _node_modules
 +-- package-lock.json
 +-- package.json
 +-- server.js
-
+```
 
 ## Other Info
 I built this website alone as part of an assignment for my coding bootcamp. The basic ability to scrape a website, display info, and make comments were part of the requirements of the assignment. The design and any extra features were my own.
