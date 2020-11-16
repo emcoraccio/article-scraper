@@ -57,4 +57,5 @@ This website is built using MVC structure.
 ## Other Info
 I built this website alone as part of an assignment for my coding bootcamp. The basic ability to scrape a website, display info, and make comments were part of the requirements of the assignment. The design and any extra features were my own.
 
+This website is currently down for maintenance, but will be back up shortly.
 You can see it deployed here: https://ghostly-alien-87903.herokuapp.com/
